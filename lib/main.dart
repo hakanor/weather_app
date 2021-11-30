@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       home: home_page(),
       debugShowCheckedModeBanner: false,
       title: "Weather_App",
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.indigo),
     );
   }
 }
