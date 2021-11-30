@@ -29,20 +29,34 @@ class _home_pageState extends State<home_page> {
           color: Color(0xFFF6F6F6),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+
             children: [
-              Container(
-                margin: EdgeInsets.only(top:20,),
-                child: Image(image: AssetImage('assets/images/logo.png'),width: 70,height: 70,),
+              // LOGO + TEXT
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top:20,),
+                    padding: EdgeInsets.only(right: 30),
+                    child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Image(image: AssetImage('assets/images/logo.png'),width: 70,height: 70,)),
+                  ),
+                  Text("Weather_App"),
+                ],
               ),
+
+              // LIST VIEW
               Expanded(
                 child: ListView(
                   children: [
                     WeatherCardWidget(),
                     WeatherCardWidget(),
                     WeatherCardWidget(),
+                    WeatherCardWidget(title: "Ankara",desc: "56 Derece",)
                   ],
                 ),
-              )
+              ),
+
             ],
 
             ),
