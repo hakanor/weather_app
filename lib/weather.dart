@@ -14,7 +14,8 @@ class Weather{
   Object? get url => null;
     Future getWeather(String city) async {
 
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$DotEnv().env['apiKey'];&units=metric";
+    var api=dotenv.get('apiKey', fallback: 'API_URL not found');
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$api&units=metric";
     http.Response response = await http.get(Uri.parse(url));
     var results =jsonDecode(response.body);
 
@@ -26,8 +27,8 @@ class Weather{
     pressure=results['main']['pressure'].toDouble();
     humidity=results['main']['humidity'].toDouble();
     //description=results['weather']['0']['description'];
-    print("aaaaaa");
-      print(low);
+    //PRINT 'ANKARA lOW TEMP'
+    print(temp);
     return Weather;
   }
 

@@ -28,7 +28,7 @@ class _home_pageState extends State<home_page> {
 
           Weather w1 = new Weather();
           w1.getWeather("Ankara");
-          print(w1.temp);
+          //print(w1.temp);
 
           setState(() {
             WeatherCardWidgetList.add(WeatherCardWidget(title: "Ankara",));
