@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Weather{
    double? temp;
@@ -9,10 +10,11 @@ class Weather{
    double? pressure;
    double? humidity;
    String? description;
+
+  Object? get url => null;
     Future getWeather(String city) async {
 
-    String apiKey = "06a36732cd5c081135f8e39496bf4100";
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$DotEnv().env['apiKey'];&units=metric";
     http.Response response = await http.get(Uri.parse(url));
     var results =jsonDecode(response.body);
 

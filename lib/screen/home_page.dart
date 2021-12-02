@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/weather_card_widget.dart';
-
+import '../weather.dart';
 
 
 class home_page extends StatefulWidget {
@@ -13,6 +14,8 @@ class home_page extends StatefulWidget {
 class _home_pageState extends State<home_page> {
   int selectedIndex=0;
   var WeatherCardWidgetList =[];
+  String cityName="";
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,10 @@ class _home_pageState extends State<home_page> {
         onPressed: (){
           // buraya fab tıklama eventleri gelecek
 
-          
+          Weather w1 = new Weather();
+          w1.getWeather("Ankara");
+          print(w1.temp);
+
           setState(() {
             WeatherCardWidgetList.add(WeatherCardWidget(title: "Ankara",));
           });
