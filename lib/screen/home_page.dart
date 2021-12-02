@@ -12,14 +12,22 @@ class home_page extends StatefulWidget {
 
 class _home_pageState extends State<home_page> {
   int selectedIndex=0;
+  var WeatherCardWidgetList =[];
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: (){
           // buraya fab tıklama eventleri gelecek
+
+          
+          setState(() {
+            WeatherCardWidgetList.add(WeatherCardWidget(title: "Ankara",));
+          });
+
         },
       ),
       body: SafeArea(
@@ -47,13 +55,11 @@ class _home_pageState extends State<home_page> {
 
               // LIST VIEW
               Expanded(
-                child: ListView(
-                  children: [
-                    WeatherCardWidget(),
-                    WeatherCardWidget(),
-                    WeatherCardWidget(),
-                    WeatherCardWidget(title: "Ankara",desc: "56 Derece",)
-                  ],
+                child: ListView.builder(
+                  itemCount: WeatherCardWidgetList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return WeatherCardWidgetList[index];
+                  },
                 ),
               ),
 
