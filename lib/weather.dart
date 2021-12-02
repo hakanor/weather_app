@@ -2,14 +2,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Weather{
-   double? temp;git co
-   double? feelsLike;git log
+   double? temp;
+   double? feelsLike;
    double? low;
    double? high;
    double? pressure;
    double? humidity;
-   String? description;git
-
+   String? description;
     Future getWeather(String city) async {
 
     String apiKey = "06a36732cd5c081135f8e39496bf4100";
